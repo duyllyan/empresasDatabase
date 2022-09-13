@@ -1,4 +1,4 @@
-import '../model/model.dart';
+import '../model/empresa.dart';
 
 class EmpresaRepository {
 

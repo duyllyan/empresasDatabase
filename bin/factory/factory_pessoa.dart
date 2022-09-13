@@ -1,4 +1,6 @@
 import '../model/model.dart';
+import '../model/pessoa_fisica.dart';
+import '../model/pessoa_juridica.dart';
 
 enum PessoaTipo { fisica, juridica }
 

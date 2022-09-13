@@ -1,5 +1,8 @@
 import '../factory/factory_pessoa.dart';
+import '../model/empresa.dart';
+import '../model/endereco.dart';
 import '../model/model.dart';
+import '../model/pessoa_juridica.dart';
 import '../repository/empresa_repository.dart';
 import 'dart:io';
 import '../util/cpfcnpj.dart';

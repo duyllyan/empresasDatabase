@@ -7,7 +7,6 @@ import '../util/menu_validacoes.dart';
 
 void main() {
   final repository = EmpresaRepository.instance;
-
   _carregaMenuPrincipal(repository);
 }
 

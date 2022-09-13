@@ -1,4 +1,5 @@
 import '../util/cpfcnpj.dart';
+import '../util/formatacoes.dart';
 import '../util/menu_validacoes.dart';
 import '../util/uuid.dart';
 import 'dart:io';
@@ -110,6 +111,11 @@ class Empresa extends PessoaJuridica {
 
   String get telefone => _telefone;
   set telefone(String telefone) {
+    while (telefone.length != 11) {
+      print("Telefone inválido!\n"
+          "Informe o telefone");
+      telefone = stdin.readLineSync()!;
+    }
     _telefone = prosseguir(telefone);
   }
 
@@ -124,7 +130,7 @@ class Empresa extends PessoaJuridica {
         'CNPJ: ${CNPJ.formata(cadastro)} Data Cadastro: $horaCadastro \n'
         'Razão Social: $razaoSocial \n'
         'Nome Fantasia: $nome \n'
-        'Telefone: $telefone \n'
+        'Telefone: ${telefone.formataTelefone()} \n'
         'Endereço: $endereco \n'
         'Socio: \n'
         '$socio';
@@ -174,11 +180,16 @@ class Endereco {
 
   String get cep => _cep;
   set cep(String cep) {
+    while (cep.length != 8) {
+      print("CEP inválido!\n"
+          "Informe novamente:");
+      cep = stdin.readLineSync()!;
+    }
     _cep = prosseguir(cep);
   }
 
   @override
   String toString() {
-    return '$logradouro, $numero, $bairro${complemento == "" ? " " : ", $complemento"}, $cidade/$estado, $cep';
+    return '$logradouro, $numero, $bairro${complemento == "" ? " " : ", $complemento"}, $cidade/$estado, ${cep.formataCEP()}';
   }
 }

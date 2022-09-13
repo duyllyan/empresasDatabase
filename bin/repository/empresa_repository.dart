@@ -1,4 +1,4 @@
-import '../model/empresa.dart';
+import '../model/model.dart';
 
 class EmpresaRepository {
 
@@ -29,6 +29,7 @@ class EmpresaRepository {
   }
 
   void excluirEmpresa(String uuid) {
-    _empresas.removeWhere((element) => element.id == uuid);
+    Empresa empresa = _empresas.firstWhere((element) => element.id == uuid);
+    _empresas.remove(empresa);
   }
 }
